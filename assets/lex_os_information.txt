@@ -1,0 +1,3 @@
+The Lexington Onboarding System (LEX-OS) is used to capture user's information
+To use the app services make sure your GPS location is turned on 
+then press the continue button

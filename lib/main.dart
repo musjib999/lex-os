@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lex_os/routes/routes.dart';
-import 'package:lex_os/screens/splash_screesn.dart';
+import 'package:lex_os/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,11 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'LEX-OS',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xff3498db),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      routes: myRoute,
       initialRoute: SplashScreen.id,
+      routes: myRoute,
     );
   }
 }
