@@ -1,6 +1,10 @@
 import 'package:argon_buttons_flutter/argon_buttons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:lex_os/functions/get_location.dart';
+import 'package:lex_os/screens/home.dart';
+import 'package:lex_os/utils/lat_lng_object.dart';
 import 'package:lex_os/utils/texts.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -81,11 +85,28 @@ class _InfoScreenState extends State<InfoScreen> {
                           onTap: (startLoading, stopLoading, btnState) {
                             if (btnState == ButtonState.Idle) {
                               startLoading();
-
-                              btnState = ButtonState.Busy;
-
-                              //get location here
                               print('Loading');
+                              determinePosition().then((Position position) {
+                                print('${position.latitude} here');
+                                btnState = ButtonState.Busy;
+                                LatLng currentPos = LatLng(
+                                  latitude: position.latitude,
+                                  longitude: position.longitude,
+                                );
+                                if (currentPos != null) {
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) {
+                                    return Home(position: position);
+                                  })).then((value) {
+                                    stopLoading();
+                                    btnState = ButtonState.Idle;
+                                  });
+                                } else {
+                                  print('error getting GPS');
+                                }
+                              });
+                            } else {
+                              print('Wait Position is loading');
                             }
                           },
                         )

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:lex_os/services/location.dart';
 
 class Home extends StatefulWidget {
   static const String id = 'Home Screen';
+  final Position position;
+
+  const Home({Key key, this.position}) : super(key: key);
   @override
   _HomeState createState() => _HomeState();
 }

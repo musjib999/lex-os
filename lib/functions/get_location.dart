@@ -8,6 +8,7 @@ Future<Position> determinePosition() async {
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
     print('Turn on Location');
+    await Geolocator.openLocationSettings();
     return Future.error('Location services are disabled.');
   }
 
@@ -28,5 +29,8 @@ Future<Position> determinePosition() async {
     }
   }
 
-  return await Geolocator.getCurrentPosition();
+  return await Geolocator.getCurrentPosition(
+    forceAndroidLocationManager: true,
+    desiredAccuracy: LocationAccuracy.best,
+  );
 }
