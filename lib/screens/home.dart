@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   width: 8,
                 ),
-                RaisedButton(
+                MaterialButton(
                   // color: Colors.blue,
                   onPressed: () {
                     _location.getCurrentLocation();
