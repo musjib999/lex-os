@@ -7,6 +7,3 @@ class GetStringFromFile {
     return textFromFile;
   }
 }
-
-String info =
-    'The Lexington Onboarding System (LEX-OS) is used to capture user\'s information \n';
