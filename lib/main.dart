@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lex_os/splash_screen.dart';
+import 'package:lex_os/routes/routes.dart';
+import 'package:lex_os/screens/splash_screesn.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,11 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'LEX-OS',
-        theme: ThemeData(
-          primaryColor: Color(0xff1a73e8),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: SplashScreen());
+      title: 'LEX-OS',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      routes: myRoute,
+      initialRoute: SplashScreen.id,
+    );
   }
 }
