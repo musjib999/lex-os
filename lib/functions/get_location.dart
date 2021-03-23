@@ -31,6 +31,6 @@ Future<Position> determinePosition() async {
 
   return await Geolocator.getCurrentPosition(
     forceAndroidLocationManager: true,
-    desiredAccuracy: LocationAccuracy.best,
+    desiredAccuracy: LocationAccuracy.bestForNavigation,
   );
 }

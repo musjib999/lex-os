@@ -12,24 +12,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  static Location _location = Location();
-  double lat = _location.latitude;
-  double long = _location.longitude;
+  // static Location _location = Location();
+  // double lat = _location.latitude;
+  // double long = _location.longitude;
   @override
   void initState() {
     super.initState();
-    Location().getCurrentLocation();
+    // Location().getCurrentLocation();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (lat != null) {
-      // print('No location');
-      print('You have a location $long $lat');
-    } else {
-      // print('You have a location $long $lat');
-      print('No location');
-    }
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -48,7 +41,7 @@ class _HomeState extends State<Home> {
                 MaterialButton(
                   // color: Colors.blue,
                   onPressed: () {
-                    _location.getCurrentLocation();
+                    // _location.getCurrentLocation();
                   },
                   child: Text(
                     'Find Location',
@@ -64,7 +57,7 @@ class _HomeState extends State<Home> {
                   TextField(
                     enabled: false,
                     decoration: InputDecoration(
-                      hintText: 'Longitude',
+                      hintText: '${widget.position.longitude}',
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
@@ -77,7 +70,7 @@ class _HomeState extends State<Home> {
                   TextField(
                     enabled: false,
                     decoration: InputDecoration(
-                      hintText: 'Latitude',
+                      hintText: '${widget.position.latitude}',
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
